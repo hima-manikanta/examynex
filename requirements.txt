@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+sqlalchemy
+opencv-python-headless
+numpy
+python-jose
+passlib[bcrypt]
+python-multipart
+face-recognition
+reportlab

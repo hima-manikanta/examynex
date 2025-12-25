@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Proctor Dashboard</title>
+    <style>
+        body { font-family: Arial; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ccc; padding: 8px; }
+        th { background: #f5f5f5; }
+        button { padding: 5px 10px; }
+    </style>
+</head>
+<body>
+
+<h2>🛡️ Live Proctor Dashboard</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Session ID</th>
+            <th>User</th>
+            <th>Exam</th>
+            <th>Violations</th>
+            <th>Status</th>
+            <th>Report</th>
+        </tr>
+    </thead>
+    <tbody id="sessions"></tbody>
+</table>
+
+<script>
+const ADMIN_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NjY2NjEwNTB9.cIaDG-yIs99OuIE76SDSteFiDt6rz98-DnAh0OsjUAk";
+
+async function loadSessions() {
+    const res = await fetch(
+        "http://127.0.0.1:8000/proctor/admin/sessions",
+        {
+            headers: {
+                "Authorization": "Bearer " + ADMIN_TOKEN
+            }
+        }
+    );
+
+    const data = await res.json();
+    const tbody = document.getElementById("sessions");
+    tbody.innerHTML = "";
+
+    data.forEach(s => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${s.session_id}</td>
+            <td>${s.user_id}</td>
+            <td>${s.exam_id}</td>
+            <td>${s.total_violations}</td>
+            <td>${s.status}</td>
+            <td>
+                <button onclick="openReport(${s.session_id})">
+                    PDF
+                </button>
+            </td>
+        `;
+        tbody.appendChild(row);
+    });
+}
+
+function openReport(sessionId) {
+    window.open(
+        `http://127.0.0.1:8000/proctor/report/${sessionId}/pdf`,
+        "_blank"
+    );
+}
+
+// 🔁 Refresh every 5 seconds
+setInterval(loadSessions, 5000);
+loadSessions();
+</script>
+
+</body>
+</html>
