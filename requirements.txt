@@ -6,5 +6,6 @@ numpy
 python-jose
 passlib[bcrypt]
 python-multipart
-face-recognition
+
 reportlab
+
