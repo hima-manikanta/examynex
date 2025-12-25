@@ -2,13 +2,9 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-# Copy requirements first
 COPY requirements.txt .
-
-# Install python dependencies (NO dlib, NO face-recognition)
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy backend source
 COPY backend ./backend
 
 EXPOSE 8000
