@@ -1,8 +1,3 @@
-# 🚀 Examynex
-### AI-Powered Online Examination System with Real-Time Proctoring
-
-**Examynex** is an AI-driven online examination platform designed to ensure exam integrity through real-time webcam, microphone, and user activity monitoring. The system detects suspicious behavior such as impersonation, talking, tab switching, and absence from the screen, making online exams secure and reliable.
-
 ---
 
 ## ✨ Features
@@ -206,19 +201,19 @@ examynex/
 │
 ├── backend/
 │ └── app/
-│ ├── main.py
-│ ├── database.py
-│ ├── auth.py
-│ ├── dependencies.py
-│ ├── models.py
-│ ├── models_proctor.py
-│ ├── schemas.py
-│ └── routes/
-│ ├── user.py
-│ ├── exam.py
-│ ├── question.py
-│ ├── submission.py
-│ └── proctor.py
+│       ├── main.py
+│       ├── database.py
+│       ├── auth.py
+│       ├── dependencies.py
+│       ├── models.py
+│       ├── models_proctor.py
+│.      ├── schemas.py
+│.      └── routes/
+│               ├── user.py
+│               ├── exam.py
+│               ├── question.py
+│.              ├── submission.py
+│               └── proctor.py
 │
 ├── webcam_test.html
 ├── requirements.txt
