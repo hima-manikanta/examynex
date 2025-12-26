@@ -10,7 +10,7 @@ import time
 from collections import defaultdict
 from datetime import datetime
 
-import face_recognition
+
 
 router = APIRouter(prefix="/proctor", tags=["Proctoring"])
 
@@ -207,3 +207,4 @@ async def analyze_frame(
         "total_violations": state["total_violations"],
         "action": action
     }
+
