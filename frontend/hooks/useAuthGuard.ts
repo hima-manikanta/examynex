@@ -2,7 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { getStoredRole, getStoredToken, UserRole } from "@/lib/auth";
+import { getStoredRole, getStoredToken } from "@/lib/auth";
+import type { UserRole } from "@/lib/auth";
 
 type AuthGuardOptions = {
   requireRole?: Extract<UserRole, "admin">;
@@ -10,7 +11,9 @@ type AuthGuardOptions = {
 
 export function useAuthGuard(options?: AuthGuardOptions) {
   const router = useRouter();
-  const [role, setRole] = useState<UserRole>(null);
+
+  // ✅ FIX: allow null explicitly
+  const [role, setRole] = useState<UserRole | null>(null);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
