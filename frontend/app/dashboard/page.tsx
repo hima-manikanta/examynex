@@ -47,6 +47,11 @@ export default function DashboardPage() {
     return exams.reduce((a, b) => (a.id < b.id ? a : b));
   }, [exams]);
 
+  // ✅ CRITICAL FIX: wait until auth is resolved
+  if (!ready || !role) {
+    return null; // or a loading skeleton
+  }
+
   return (
     <div className="min-h-screen bg-[#f4f5f0] px-4 py-8 text-neutral-900">
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-8">
