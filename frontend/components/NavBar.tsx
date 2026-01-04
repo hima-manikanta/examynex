@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { clearAuth } from "@/lib/auth";
+import type { UserRole } from "@/lib/auth";
 
 type NavBarProps = {
   role: UserRole;
@@ -49,4 +50,5 @@ export default function NavBar({ role }: NavBarProps) {
     </header>
   );
 }
+
 
