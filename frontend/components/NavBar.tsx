@@ -1,36 +1,51 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { clearAuth } from "@/lib/auth";
 import type { UserRole } from "@/lib/auth";
-import { getStoredToken, getStoredRole } from "@/lib/auth";
 
-type AuthGuardOptions = {
-  requireRole?: UserRole;
+type NavBarProps = {
+  role: UserRole;
 };
 
-export function useAuthGuard(options?: AuthGuardOptions) {
+const links = [
+  { href: "/dashboard", label: "Dashboard", roles: ["admin", "student"] },
+  { href: "/admin", label: "Admin", roles: ["admin"] },
+];
+
+export default function NavBar({ role }: NavBarProps) {
   const router = useRouter();
-  const [role, setRole] = useState<UserRole | null>(null); // ✅ FIX
-  const [ready, setReady] = useState(false);
+  const pathname = usePathname();
 
-  useEffect(() => {
-    const token = getStoredToken();
-    const storedRole = getStoredRole();
+  const handleLogout = () => {
+    clearAuth();
+    router.replace("/login");
+  };
 
-    if (!token) {
-      router.replace("/login");
-      return;
-    }
+  const visibleLinks = links.filter((link) =>
+    role ? link.roles.includes(role) : false
+  );
 
-    setRole(storedRole);
-    setReady(true);
+  return (
+    <header className="mx-auto flex w-full max-w-4xl items-center justify-between rounded-full border bg-white px-5 py-3">
+      <div className="text-sm font-semibold tracking-widest">EXAMYNEX</div>
 
-    if (options?.requireRole && storedRole !== options.requireRole) {
-      router.replace("/unauthorized");
-    }
-  }, [options, router]);
+      <nav className="flex gap-2">
+        {visibleLinks.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className={`px-4 py-2 rounded ${
+              pathname.startsWith(link.href) ? "bg-black text-white" : ""
+            }`}
+          >
+            {link.label}
+          </Link>
+        ))}
+      </nav>
 
-  return { role, ready };
+      <button onClick={handleLogout}>Logout</button>
+    </header>
+  );
 }
-
