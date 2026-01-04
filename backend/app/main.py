@@ -19,7 +19,10 @@ app = FastAPI(title="Examnex Backend")
 # ✅ CORS (MANDATORY FOR BROWSER / WEBCAM)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=[
+        "http://localhost:3000",
+        "https://examynex.up.railway.app"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -85,3 +88,4 @@ async def options_handler(path: str, request: Request):
 @app.get("/")
 def root():
     return {"status": "Backend running successfully"}
+
