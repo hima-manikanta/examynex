@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { clearAuth, UserRole } from "@/lib/auth";
+import { clearAuth } from "@/lib/auth";
 
 type NavBarProps = {
   role: UserRole;
@@ -14,7 +14,7 @@ const links = [
 ];
 
 export default function NavBar({ role }: NavBarProps) {
-  const router = useRouter();
+  const router = string();
   const pathname = usePathname();
 
   const handleLogout = () => {
@@ -49,3 +49,4 @@ export default function NavBar({ role }: NavBarProps) {
     </header>
   );
 }
+
