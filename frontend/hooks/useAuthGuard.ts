@@ -2,8 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { getStoredRole, getStoredToken } from "@/lib/auth";
-import type { UserRole } from "@/lib/auth";
+import { getStoredRole, getStoredToken, UserRole } from "@/lib/auth";
 
 type AuthGuardOptions = {
   requireRole?: Extract<UserRole, "admin">;
@@ -11,14 +10,12 @@ type AuthGuardOptions = {
 
 export function useAuthGuard(options?: AuthGuardOptions) {
   const router = useRouter();
-
-  // ✅ THIS LINE FIXES THE BUILD
   const [role, setRole] = useState<UserRole | null>(null);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
     const token = getStoredToken();
-    const storedRole = getStoredRole();
+    const storedRole = getStoredRole(); // string | null
 
     if (!token) {
       router.replace("/login");
@@ -30,7 +27,13 @@ export function useAuthGuard(options?: AuthGuardOptions) {
       return;
     }
 
-    setRole(storedRole);
+    // ✅ TYPE-SAFE ROLE VALIDATION
+    if (storedRole === "admin" || storedRole === "student") {
+      setRole(storedRole);
+    } else {
+      setRole(null);
+    }
+
     setReady(true);
   }, [router, options?.requireRole]);
 
