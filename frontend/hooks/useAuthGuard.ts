@@ -12,7 +12,7 @@ type AuthGuardOptions = {
 export function useAuthGuard(options?: AuthGuardOptions) {
   const router = useRouter();
 
-  // ✅ FIX: allow null explicitly
+  // ✅ THIS LINE FIXES THE BUILD
   const [role, setRole] = useState<UserRole | null>(null);
   const [ready, setReady] = useState(false);
 
