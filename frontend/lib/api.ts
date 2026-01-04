@@ -1,5 +1,4 @@
 // frontend/lib/api.ts
-
 import axios, { AxiosError } from "axios";
 import { getStoredToken } from "@/lib/auth";
 
@@ -12,9 +11,6 @@ export const api = axios.create({
   timeout: 15000,
 });
 
-// ===============================
-// Attach JWT to every request
-// ===============================
 api.interceptors.request.use((config) => {
   const token = getStoredToken();
   if (token) {
@@ -23,23 +19,17 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// ===============================
-// SAFE response interceptor
-// ===============================
 api.interceptors.response.use(
   (response) => response,
   (error: AxiosError) => {
     const status = error.response?.status;
 
-    // ⚠️ IMPORTANT:
-    // DO NOT auto-logout on 401
-    // Let pages decide what to do
     if (status === 401) {
-      console.warn(
-        "401 Unauthorized received — token may be expired or endpoint protected"
-      );
+      console.warn("401 Unauthorized — token may be expired");
     }
 
     return Promise.reject(error);
   }
 );
+
+export default api;
