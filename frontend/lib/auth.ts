@@ -1,4 +1,5 @@
 // frontend/lib/auth.ts
+export type UserRole = "admin" | "student";
 
 export const persistAuth = (token: string, role: string) => {
   localStorage.setItem("token", token);
@@ -17,3 +18,4 @@ export const clearAuth = () => {
   localStorage.removeItem("token");
   localStorage.removeItem("role");
 };
+
