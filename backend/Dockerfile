@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
 # Dependencies (note: filename is intentionally 'requirments.txt')
 COPY requirements.txt ./
 RUN pip install --no-cache-dir --upgrade pip \
-    && pip install --no-cache-dir -r requirments.txt
+    && pip install --no-cache-dir -r requirements.txt
 
 # App code
 COPY . .
@@ -22,4 +22,5 @@ COPY . .
 EXPOSE 8000
 
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+
 
