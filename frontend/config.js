@@ -3,7 +3,7 @@
 const API_CONFIG = {
     BASE_URL: (function() {
         const stored = (typeof window !== 'undefined') ? window.localStorage.getItem('api_base') : null;
-        return stored || 'http://localhost:8000';
+        return stored || 'https://examynex-backend.up.railway.app';
     })(),
     
     // Endpoints
@@ -63,3 +63,4 @@ function getWsUrl(endpoint) {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { API_CONFIG, getApiUrl, getWsUrl, setApiBase };
 }
+
