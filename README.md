@@ -197,26 +197,81 @@
 
 ## 📂 Project Structure
 
-##examynex/
--     │
--     ├── backend/
--     │ └── app/
--     │       ├── main.py
--     │       ├── database.py
--     │       ├── auth.py
--     │       ├── dependencies.py
--     │       ├── models.py
--     │       ├── models_proctor.py
--     │       ├── schemas.py
--     │       └── routes/
--     │               ├── user.py
--     │               ├── exam.py
--     │               ├── question.py
--     │               ├── submission.py
--     │               └── proctor.py
--     │
--     ├── webcam_test.html
--     ├── requirements.txt
--     ├── render.yaml
--     ├── README.md
--     └── .gitignore
+## examynex/
+├── Documentation & Config Files
+│   ├── ARCHITECTURE.md
+│   ├── CHANGES_SUMMARY.md
+│   ├── DOCUMENTATION_INDEX.md
+│   ├── FEATURE_MAPPING.md
+│   ├── IMPLEMENTATION_COMPLETE.md
+│   ├── PROJECT_COMPLETE.md
+│   ├── PROJECT_COMPLETION_CHECKLIST.md
+│   ├── PROJECT_OVERVIEW.md
+│   ├── PROJECT_STATUS.md
+│   ├── QUICKSTART.md
+│   ├── QUICK_REFERENCE.md
+│   ├── README.md
+│   ├── README_NEW.md
+│   ├── SESSION_COMPLETE.md
+│   ├── SETUP_GUIDE.md
+│   ├── STARTUP_GUIDE.md
+│   ├── docker-compose.yml
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── requirements.txt
+│   ├── render.yaml
+│   └── backend.zip
+│
+├── .github/
+│   └── copilot-instructions.md
+│
+├── backend/
+│   ├── Dockerfile
+│   ├── package-lock.json
+│   ├── requirments.txt
+│   ├── reset_db.bat
+│   ├── reset_db.sh
+│   ├── run_and_debug.txt
+│   ├── start_server.bat
+│   ├── start_server.sh
+│   │
+│   └── app/
+│       ├── __init__.py
+│       ├── auth.py
+│       ├── database.py
+│       ├── dependencies.py
+│       ├── main.py
+│       ├── models.py
+│       ├── models_proctor.py
+│       ├── proctor.py
+│       ├── schemas.py
+│       ├── __pycache__/
+│       │
+│       ├── routes/
+│       │   ├── exam.py
+│       │   ├── proctor.py
+│       │   ├── question.py
+│       │   ├── submission.py
+│       │   ├── user.py
+│       │   └── __pycache__/
+│       │
+│       └── services/
+│           └── face_utils.py
+│
+└── frontend/
+    ├── admin-add-question.html
+    ├── admin-create-exam.html
+    ├── admin-dashboard.html
+    ├── admin-monitor.html
+    ├── admin-submissions.html
+    ├── config.js
+    ├── dashboard.html
+    ├── Dockerfile
+    ├── exam-results.html
+    ├── exam-taking.html
+    ├── index.html
+    ├── login.html
+    ├── register.html
+    ├── student-dashboard.html
+    ├── student-profile.html
+    └── styles.css
