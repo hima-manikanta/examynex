@@ -197,8 +197,8 @@
 
 ## 📂 Project Structure
 
-## examynex/
-├── Documentation & Config Files
+examynex/
+├── Documentation & Config Files/
 │   ├── ARCHITECTURE.md
 │   ├── CHANGES_SUMMARY.md
 │   ├── DOCUMENTATION_INDEX.md
@@ -228,13 +228,12 @@
 ├── backend/
 │   ├── Dockerfile
 │   ├── package-lock.json
-│   ├── requirments.txt
+│   ├── requirements.txt
 │   ├── reset_db.bat
 │   ├── reset_db.sh
 │   ├── run_and_debug.txt
 │   ├── start_server.bat
 │   ├── start_server.sh
-│   │
 │   └── app/
 │       ├── __init__.py
 │       ├── auth.py
@@ -245,16 +244,12 @@
 │       ├── models_proctor.py
 │       ├── proctor.py
 │       ├── schemas.py
-│       ├── __pycache__/
-│       │
 │       ├── routes/
 │       │   ├── exam.py
 │       │   ├── proctor.py
 │       │   ├── question.py
 │       │   ├── submission.py
-│       │   ├── user.py
-│       │   └── __pycache__/
-│       │
+│       │   └── user.py
 │       └── services/
 │           └── face_utils.py
 │
@@ -266,7 +261,6 @@
     ├── admin-submissions.html
     ├── config.js
     ├── dashboard.html
-    ├── Dockerfile
     ├── exam-results.html
     ├── exam-taking.html
     ├── index.html
