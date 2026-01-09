@@ -1,271 +1,207 @@
 ---
 
-## ✨ Features
-
-### 🎥 Webcam Proctoring
-- Face detection using OpenCV
-- Multiple face detection
-- Left seat detection
-- Camera covered detection
-- Identity verification (anti-impersonation)
-
-### 🎙️ Audio Monitoring
-- Real-time microphone monitoring
-- Talking detection during exams
-
-### 🖥️ Browser & UI Monitoring
-- Tab switch detection
-- Window blur detection
-- Fullscreen exit detection
-
-### ⚠️ Violation Escalation System
-- Progressive warnings
-- Final warning system
-- Automatic exam termination after repeated violations
-
-### 📄 Proctoring Reports
-- Detailed violation logs
-- Auto-generated PDF reports
-- Cheating score and risk level assessment
-
-### 🔐 Secure Backend
-- JWT authentication
-- Role-based access (Admin / Student)
-- HTTPS-ready deployment
-- WebSocket support for real-time admin monitoring
-
----
-
-## 🛠️ Tech Stack
-
-### Backend
-- FastAPI
-- Python
-- SQLAlchemy
-- SQLite / PostgreSQL
-- JWT Authentication
-
-### AI & Computer Vision
-- OpenCV
-- face_recognition
-- NumPy
-
-### Real-Time Communication
-- WebSockets
-
-### Deployment
-- Render (Free Tier)
-- Cloudflare Tunnel (for HTTPS webcam & mic support)
-
----
-
-## 📂 Project Structure
-
 # 🚀 Examynex
+
 ### AI-Powered Online Examination System with Real-Time Proctoring
 
-**Examynex** is an AI-driven online examination platform designed to ensure exam integrity through real-time webcam, microphone, and user activity monitoring. The system detects suspicious behavior such as impersonation, talking, tab switching, and absence from the screen, making online exams secure and reliable.
+**Examynex** is an AI-driven online examination platform designed to ensure exam integrity through real-time **webcam**, **microphone**, and **user activity** monitoring.
+It detects suspicious behavior such as impersonation, talking, tab switching, and leaving the exam environment—making online exams **secure, reliable, and scalable**.
+
+---
+
+## 📌 Key Highlights
+
+* Real-time AI-based proctoring
+* Secure role-based authentication
+* Automated violation detection & escalation
+* Admin live monitoring dashboard
+* Detailed post-exam proctoring reports
 
 ---
 
 ## ✨ Features
 
 ### 🎥 Webcam Proctoring
-- Face detection using OpenCV
-- Multiple face detection
-- Left seat detection
-- Camera covered detection
-- Identity verification (anti-impersonation)
+
+* Face detection using OpenCV
+* Multiple face detection
+* Left-seat detection
+* Camera covered detection
+* Identity verification (anti-impersonation)
 
 ### 🎙️ Audio Monitoring
-- Real-time microphone monitoring
-- Talking detection during exams
+
+* Real-time microphone monitoring
+* Talking detection during exams
 
 ### 🖥️ Browser & UI Monitoring
-- Tab switch detection
-- Window blur detection
-- Fullscreen exit detection
+
+* Tab switch detection
+* Window blur detection
+* Fullscreen exit detection
 
 ### ⚠️ Violation Escalation System
-- Progressive warnings
-- Final warning system
-- Automatic exam termination after repeated violations
+
+* Progressive warnings
+* Final warning mechanism
+* Automatic exam termination after repeated violations
 
 ### 📄 Proctoring Reports
-- Detailed violation logs
-- Auto-generated PDF reports
-- Cheating score and risk level assessment
+
+* Detailed violation logs
+* Auto-generated reports
+* Cheating score & risk-level assessment
 
 ### 🔐 Secure Backend
-- JWT authentication
-- Role-based access (Admin / Student)
-- HTTPS-ready deployment
-- WebSocket support for real-time admin monitoring
+
+* JWT-based authentication
+* Role-based access (Admin / Student)
+* HTTPS-ready deployment
+* WebSocket support for real-time admin monitoring
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Backend
-- FastAPI
-- Python
-- SQLAlchemy
-- SQLite / PostgreSQL
-- JWT Authentication
+
+* **FastAPI**
+* **Python**
+* **SQLAlchemy**
+* **SQLite / PostgreSQL**
+* **JWT Authentication**
 
 ### AI & Computer Vision
-- OpenCV
-- face_recognition
-- NumPy
+
+* **OpenCV**
+* **face_recognition**
+* **NumPy**
 
 ### Real-Time Communication
-- WebSockets
+
+* **WebSockets**
+
+### Frontend
+
+* HTML, CSS, JavaScript
+* Browser APIs (Webcam, Microphone, Fullscreen)
 
 ### Deployment
-- Render (Free Tier)
-- Cloudflare Tunnel (for HTTPS webcam & mic support)
+
+* Render (Free Tier)
+* Railway / Docker
+* Cloudflare Tunnel (for HTTPS webcam & mic access)
 
 ---
 
 ## 📂 Project Structure
 
-# 🚀 Examynex
-### AI-Powered Online Examination System with Real-Time Proctoring
-
-**Examynex** is an AI-driven online examination platform designed to ensure exam integrity through real-time webcam, microphone, and user activity monitoring. The system detects suspicious behavior such as impersonation, talking, tab switching, and absence from the screen, making online exams secure and reliable.
-
----
-
-## ✨ Features
-
-### 🎥 Webcam Proctoring
-- Face detection using OpenCV
-- Multiple face detection
-- Left seat detection
-- Camera covered detection
-- Identity verification (anti-impersonation)
-
-### 🎙️ Audio Monitoring
-- Real-time microphone monitoring
-- Talking detection during exams
-
-### 🖥️ Browser & UI Monitoring
-- Tab switch detection
-- Window blur detection
-- Fullscreen exit detection
-
-### ⚠️ Violation Escalation System
-- Progressive warnings
-- Final warning system
-- Automatic exam termination after repeated violations
-
-### 📄 Proctoring Reports
-- Detailed violation logs
-- Auto-generated PDF reports
-- Cheating score and risk level assessment
-
-### 🔐 Secure Backend
-- JWT authentication
-- Role-based access (Admin / Student)
-- HTTPS-ready deployment
-- WebSocket support for real-time admin monitoring
-
----
-
-## 🛠️ Tech Stack
-
-### Backend
-- FastAPI
-- Python
-- SQLAlchemy
-- SQLite / PostgreSQL
-- JWT Authentication
-
-### AI & Computer Vision
-- OpenCV
-- face_recognition
-- NumPy
-
-### Real-Time Communication
-- WebSockets
-
-### Deployment
-- Render (Free Tier)
-- Cloudflare Tunnel (for HTTPS webcam & mic support)
-
----
-
-## 📂 Project Structure
-
+```text
 examynex/
 ├── Documentation & Config Files/
 │   ├── ARCHITECTURE.md
-│   ├── CHANGES_SUMMARY.md
-│   ├── DOCUMENTATION_INDEX.md
-│   ├── FEATURE_MAPPING.md
-│   ├── IMPLEMENTATION_COMPLETE.md
-│   ├── PROJECT_COMPLETE.md
-│   ├── PROJECT_COMPLETION_CHECKLIST.md
 │   ├── PROJECT_OVERVIEW.md
-│   ├── PROJECT_STATUS.md
-│   ├── QUICKSTART.md
-│   ├── QUICK_REFERENCE.md
-│   ├── README.md
-│   ├── README_NEW.md
-│   ├── SESSION_COMPLETE.md
 │   ├── SETUP_GUIDE.md
 │   ├── STARTUP_GUIDE.md
+│   ├── QUICKSTART.md
 │   ├── docker-compose.yml
-│   ├── package.json
-│   ├── package-lock.json
-│   ├── requirements.txt
-│   ├── render.yaml
-│   └── backend.zip
+│   └── render.yaml
 │
 ├── .github/
 │   └── copilot-instructions.md
 │
 ├── backend/
 │   ├── Dockerfile
-│   ├── package-lock.json
 │   ├── requirements.txt
-│   ├── reset_db.bat
-│   ├── reset_db.sh
-│   ├── run_and_debug.txt
-│   ├── start_server.bat
 │   ├── start_server.sh
 │   └── app/
-│       ├── __init__.py
-│       ├── auth.py
-│       ├── database.py
-│       ├── dependencies.py
 │       ├── main.py
+│       ├── database.py
 │       ├── models.py
-│       ├── models_proctor.py
-│       ├── proctor.py
 │       ├── schemas.py
 │       ├── routes/
+│       │   ├── user.py
 │       │   ├── exam.py
-│       │   ├── proctor.py
 │       │   ├── question.py
 │       │   ├── submission.py
-│       │   └── user.py
+│       │   └── proctor.py
 │       └── services/
 │           └── face_utils.py
 │
 └── frontend/
-    ├── admin-add-question.html
-    ├── admin-create-exam.html
-    ├── admin-dashboard.html
-    ├── admin-monitor.html
-    ├── admin-submissions.html
-    ├── config.js
-    ├── dashboard.html
-    ├── exam-results.html
-    ├── exam-taking.html
     ├── index.html
     ├── login.html
     ├── register.html
+    ├── admin-dashboard.html
+    ├── exam-taking.html
     ├── student-dashboard.html
-    ├── student-profile.html
     └── styles.css
+```
+
+---
+
+## ⚙️ Setup & Installation
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/hima-manikanta/examynex.git
+cd examynex
+```
+
+### 2️⃣ Backend Setup
+
+```bash
+cd backend
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+### 3️⃣ Frontend
+
+Open `frontend/index.html` in a browser
+(or serve using Live Server / any static server)
+
+---
+
+## 🔐 Authentication & Roles
+
+* **Admin**: Create exams, monitor students live, view reports
+* **Student**: Take exams under AI proctoring
+
+---
+
+## 📊 Use Cases
+
+* Online universities & colleges
+* Certification platforms
+* Remote hiring assessments
+* Secure online quizzes & tests
+
+---
+
+## 🧠 Future Enhancements
+
+* Emotion & gaze tracking
+* AI-based cheating score prediction
+* Cloud-based video evidence storage
+* Mobile support
+
+---
+
+## 👨‍💻 Author
+
+**Manu (Hima Manikanta Vasamsetti)**
+Final Year B.Tech – CSE (AI & ML)
+
+---
+
+## 📜 License
+
+This project is for **academic & learning purposes**.
+Feel free to fork and enhance.
+
+---
+## links
+-  backend: https://examynex-backend.up.railway.app/
+-  frontend: https://bvcexamynex.netlify.app/
