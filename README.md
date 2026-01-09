@@ -1,5 +1,3 @@
----
-
 # 🚀 Examynex
 
 ### AI-Powered Online Examination System with Real-Time Proctoring
