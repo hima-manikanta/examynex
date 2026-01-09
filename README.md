@@ -5,7 +5,7 @@
 **Examynex** is an AI-driven online examination platform designed to ensure exam integrity through real-time **webcam**, **microphone**, and **user activity** monitoring.
 It detects suspicious behavior such as impersonation, talking, tab switching, and leaving the exam environment—making online exams **secure, reliable, and scalable**.
 
----
+
 
 ## 📌 Key Highlights
 
