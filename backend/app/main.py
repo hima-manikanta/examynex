@@ -27,7 +27,7 @@ app.add_middleware(
         "http://localhost:8080",
         "http://127.0.0.1:8080",
         "https://*.onrender.com",
-        "https://*.netlify.app",
+        "https://bvcexamynex.netlify.app",
         "https://*.vercel.app",
         "https://*.github.io",
     ],
@@ -97,3 +97,4 @@ async def options_handler(path: str, request: Request):
 @app.get("/")
 def root():
     return {"status": "Backend running successfully"}
+
