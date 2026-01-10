@@ -31,6 +31,7 @@
     </div>
 
     <script src="config.js"></script>
+    <script src="auth-utils.js"></script>
     <script>
         // Show alert message
         function showAlert(message, type = 'info') {
@@ -60,14 +61,16 @@
             showAlert('Redirecting to your dashboard...', 'info');
 
             try {
-                // Verify token with backend
-                const response = await fetch(getApiUrl(API_CONFIG.ENDPOINTS.USER_ME), {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Content-Type': 'application/json',
+                // Use token refresh utility for this request
+                const response = await AuthUtils.fetchWithTokenRefresh(
+                    getApiUrl(API_CONFIG.ENDPOINTS.USER_ME),
+                    {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
                     }
-                });
+                );
 
                 if (response.ok) {
                     const userData = await response.json();
@@ -77,6 +80,9 @@
                         localStorage.setItem('role', userData.role);
                     }
 
+                    // Initialize token refresh
+                    AuthUtils.initTokenRefresh();
+
                     // Redirect based on role
                     if (userData.role === 'admin') {
                         window.location.href = 'admin-dashboard.html';
@@ -84,16 +90,14 @@
                         window.location.href = 'student-dashboard.html';
                     }
                 } else {
-                    // Token invalid, redirect to login
-                    localStorage.removeItem('token');
-                    localStorage.removeItem('role');
-                    window.location.href = 'login.html';
+                    // Token invalid, logout
+                    AuthUtils.logout('Session invalid. Please login again.');
                 }
             } catch (error) {
                 console.error('Auth check error:', error);
                 showAlert('Network error. Redirecting to login...', 'error');
                 setTimeout(() => {
-                    window.location.href = 'login.html';
+                    AuthUtils.logout();
                 }, 2000);
             }
         }
@@ -134,16 +138,8 @@
                 showAlert('Network error. Please check your connection.', 'error');
             }
         }
-
-        // Handle logout
-        function handleLogout() {
-            // Clear token
-            localStorage.removeItem('token');
-
-            // Show message
-            showAlert('Logging out...', 'success');
-
-            // Redirect to login
+Use auth utility to logout
+            AuthUtils.logout('Logging out...'rect to login
             setTimeout(() => {
                 window.location.href = 'login.html';
             }, 1000);
