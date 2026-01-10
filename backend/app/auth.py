@@ -4,7 +4,8 @@ from passlib.context import CryptContext
 
 SECRET_KEY = "examynex_super_secret_key"  # keep constant
 ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24
+ACCESS_TOKEN_EXPIRE_MINUTES = 30  # Short-lived access token
+REFRESH_TOKEN_EXPIRE_DAYS = 7  # Longer-lived refresh token
 
 # Use pbkdf2_sha256 to avoid bcrypt backend/version issues and 72-byte limits
 pwd_context = CryptContext(
@@ -32,6 +33,16 @@ def create_access_token(user_id: int, role: str):
     payload = {
         "user_id": user_id,
         "role": role,
+        "type": "access",
         "exp": datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    }
+    return jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
+
+
+def create_refresh_token(user_id: int):
+    payload = {
+        "user_id": user_id,
+        "type": "refresh",
+        "exp": datetime.utcnow() + timedelta(days=REFRESH_TOKEN_EXPIRE_DAYS)
     }
     return jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
