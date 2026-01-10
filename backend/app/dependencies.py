@@ -13,6 +13,11 @@ def get_current_user(
         token = credentials.credentials
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
 
+        # Ensure this is an access token, not a refresh token
+        token_type = payload.get("type")
+        if token_type != "access":
+            raise HTTPException(status_code=401, detail="Invalid token type")
+
         user_id = payload.get("user_id")
         role = payload.get("role")
 
@@ -24,5 +29,7 @@ def get_current_user(
             "role": role
         }
 
-    except JWTError:
+    except JWTError as e:
+        if "expired" in str(e).lower():
+            raise HTTPException(status_code=401, detail="Token expired - please refresh or login again")
         raise HTTPException(status_code=401, detail="Invalid or expired token")
