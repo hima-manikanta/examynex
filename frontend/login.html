@@ -113,9 +113,11 @@
                 const data = await response.json();
 
                 if (response.ok) {
-                    // Store the access token and role
+                    // Store the access token, refresh token, and role
                     localStorage.setItem('token', data.access_token);
+                    localStorage.setItem('refreshToken', data.refresh_token);
                     localStorage.setItem('role', data.role);
+                    localStorage.setItem('loginTime', new Date().getTime().toString());
 
                     // Show success message
                     showAlert('Login successful! Redirecting...', 'success');
